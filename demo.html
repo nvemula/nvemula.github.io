@@ -8,7 +8,9 @@
 <p>Hello</p>
 
 <div id="username"> </div>
-<a href="intent://scan/#Intent;scheme=happy;package=com.happy.myapplication;end"> Take a QR code </a>
+<a id="redirect_url1" style="display:none" href="http://www.google.com"> Take a QR code </a>
+
+<a id="redirect_url" style="display:none" href="intent://scan/#Intent;scheme=happy;package=com.happy.myapplication;type=text/plain;"> Take a QR code </a>
 <div id="apple-sign-in-button"> </div>
 <div id="apple-sign-out-button"> </div>
 <script type="text/javascript" src="https://cdn.apple-cloudkit.com/ck/2/cloudkit.js"> </script>
@@ -71,6 +73,7 @@ function demoSetUpAuth() {
 
   var displayUserName = function(name) {
     var userNameEl = document.getElementById('username');
+
     userNameEl.textContent = name;
     var displayedUserName = document.getElementById('displayed-username');
     if(displayedUserName) {
@@ -94,8 +97,16 @@ function demoSetUpAuth() {
   function gotoAuthenticatedState(userInfo) {
     if(userInfo.isDiscoverable) {
       displayUserName(userInfo.firstName + ' ' + userInfo.lastName);
+
     } else {
       displayUserName('User record name: ' + userInfo.userRecordName);
+      var intentData = 'S.android.intent.extra.TEXT=' + userInfo.userRecordName + ';';
+      debugger;
+      var redirect = document.getElementById('redirect_url');
+      var href = document.getElementById('redirect_url').getAttribute('href');
+      var hrefData = href + intentData + "end;";
+      document.getElementById('redirect_url').setAttribute('href', hrefData);
+      redirect.click();
     }
     container
       .whenUserSignsOut()
