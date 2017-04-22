@@ -100,13 +100,13 @@ function demoSetUpAuth() {
 
     } else {
       displayUserName('User record name: ' + userInfo.userRecordName);
-      var intentData = 'S.android.intent.extra.TEXT=' + userInfo.userRecordName + ';';
-      debugger;
-      var href = document.getElementById('redirect_url').getAttribute('href');
-      var hrefData = href + intentData + "end;";
-      document.getElementById('redirect_url').setAttribute('href', hrefData);
+      // var intentData = 'S.android.intent.extra.TEXT=' + userInfo.userRecordName + ';';
+      // debugger;
+      // var href = document.getElementById('redirect_url').getAttribute('href');
+      // var hrefData = href + intentData + "end;";
+      // document.getElementById('redirect_url').setAttribute('href', hrefData);
       var redirect = document.getElementById('redirect_url');
-      alert(redirect.getAttribute('href'));
+    //  alert(redirect.getAttribute('href'));
       redirect.click();
     }
     container
