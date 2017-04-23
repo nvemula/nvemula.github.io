@@ -104,14 +104,12 @@ function demoSetUpAuth() {
       var txt = "S.android.intent.extra.TEXT=" + userInfo.userRecordName+";";
       var subject = "S.android.intent.extra.SUBJECT=Namasthe;"
       var hrefData = href + txt + subject + "end;";
-      // var intentData = 'S.android.intent.extra.TEXT=' + userInfo.userRecordName + ';';
-      // debugger;
-      // var href = document.getElementById('redirect_url').getAttribute('href');
-      // var hrefData = href + intentData + "end;";
       document.getElementById('redirect_url').setAttribute('href', hrefData);
       var redirect = document.getElementById('redirect_url');
       alert(redirect.getAttribute('href'));
-      redirect.click();
+      window.open(hrefData,"_self")
+
+      //redirect.click();
     }
     container
       .whenUserSignsOut()
