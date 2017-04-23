@@ -101,7 +101,7 @@ function demoSetUpAuth() {
     } else {
       displayUserName('User record name: ' + userInfo.userRecordName);
       var href = "intent://scan/#Intent;scheme=happy;package=com.happy.myapplication;";
-      var txt = "S.android.intent.extra.TEXT=Helloworld;"
+      var txt = "S.android.intent.extra.TEXT=" + userInfo.userRecordName+";";
       var subject = "S.android.intent.extra.SUBJECT=Namasthe;"
       var hrefData = href + txt + subject + "end;";
       // var intentData = 'S.android.intent.extra.TEXT=' + userInfo.userRecordName + ';';
