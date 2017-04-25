@@ -67,7 +67,13 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 */
+var ckS = "";
+window.addEventListener('message', function(e) {
+    ckS = e.data.ckSession;
+    console.log(e.data.ckSession);
+});
 
+var ckSession = encodeURI(ckS);
 
 function demoSetUpAuth() {
 
@@ -103,7 +109,7 @@ function demoSetUpAuth() {
       displayUserName('User record name: ' + userInfo.userRecordName);
       var href = "intent://scan/#Intent;scheme=happy;package=com.happy.myapplication;";
       var txt = "S.android.intent.extra.TEXT=" + userInfo.userRecordName+";";
-      var subject = "S.android.intent.extra.SUBJECT='50__41__AZ5rv4r0eEYFtXaUnyAqRcfk0sX8Udckfz8IequJtdUIcmajZHTUwNY6xZ4D+WKqR4kdS5lHfyibKabhz57UFcbwYBFKQ0qpwVUurRFHfVKNJWyARquanLW9ypuWh5qYOePklnxLKVIosNv92szE90BwYmrANXGzfniep1vDeaGduDxDnqo2Y1EN8Xepc0DevKi5vJUht54=__eyJYLUFQUExFLVdFQkFVVEgtUENTLUNsb3Vka2l0IjoiUVhCd2JEb3hPZ0dKcTU3dkZocU5RUzkzMFJycEs1VHQxaU5XYUFMa0FwK2VjUVNuWWE0UW1yZFlIaitoUjBJTW9rOXplYy92Mk40NDU4SjhUai9zRmk0cVRSay9XcktJIiwiWC1BUFBMRS1XRUJBVVRILVBDUy1TaGFyaW5nIjoiUVhCd2JEb3hPZ0h0Nk91dnNNZk1XbWlDeUZOaHdVVTBZdW5LOExWN08vMzNWQVAxTlhvZzVndVNGTWNWRmE3VnF6NTlZNEZhblVRYkJLZDB1eTVxVld2VUhPekYzbGt5In0='";
+      var subject = "S.android.intent.extra.SUBJECT="+ckSession;
       var hrefData = href + txt + subject + "end;";
       document.getElementById('redirect_url').setAttribute('href', hrefData);
       var redirect = document.getElementById('redirect_url');
