@@ -67,13 +67,12 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 */
-var ckS = "";
+var ckSession = "";
 window.addEventListener('message', function(e) {
-    ckS = e.data.ckSession;
-    console.log(e.data.ckSession);
-});
+    console.log(e);
+    this.ckSession = encodeURI(e.data.ckSession);
 
-var ckSession = encodeURI(ckS);
+})
 
 function demoSetUpAuth() {
 
