@@ -1,0 +1,131 @@
+:root {
+  color-scheme: dark;
+  background: #000;
+  color: #fff;
+  font: 100%/1.5 system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.site {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100vh;
+}
+
+.shell {
+  box-sizing: border-box;
+  inline-size: 100%;
+  max-inline-size: 72rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 5vw, 4rem);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  line-height: 1;
+  letter-spacing: -0.065em;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.22em;
+}
+
+a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 5px;
+}
+
+.home {
+  padding-block: clamp(5rem, 14vh, 10rem) 4rem;
+}
+
+.app-list {
+  max-inline-size: 34rem;
+  margin: 2.75rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-block: 1px solid #444;
+}
+
+.app-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1.1rem;
+  text-decoration: none;
+}
+
+.app-link:is(:hover, :focus-visible) strong {
+  text-decoration: underline;
+}
+
+.app-icon {
+  display: block;
+  flex: none;
+  border-radius: 0.6rem;
+}
+
+.app-details {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.app-details strong {
+  font-size: 1.25rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 1rem;
+  padding-block: clamp(2.75rem, 8vh, 6rem);
+}
+
+.hero h1 {
+  margin-block-start: 1rem;
+  font-size: clamp(2.75rem, 7vw, 5rem);
+}
+
+.hero p {
+  max-inline-size: 32ch;
+  margin: 1rem 0 0;
+}
+
+.hero p:first-of-type {
+  font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+  line-height: 1.35;
+}
+
+.app-store-badge {
+  display: inline-block;
+  margin-block-start: 1.5rem;
+}
+
+.app-store-badge img {
+  display: block;
+  inline-size: auto;
+  block-size: 2.5rem;
+}
+
+.hero-image {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+}
+
+.site-footer {
+  margin-block-start: auto;
+  padding-block: 1.5rem 2rem;
+}
+
+@media (max-width: 44rem) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
